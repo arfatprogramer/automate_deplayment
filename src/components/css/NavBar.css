@@ -1,0 +1,75 @@
+:root {
+    --orange: #ff4321;
+    --TextColor: #fff;
+    --BackColor: #1e1d1d;
+}
+
+.logo {
+    color: var(--orange);
+    font-size: 40px;
+}
+
+nav {
+    display: flex;
+    height: 10vh;
+    width: 80%;
+    margin: 0px auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--BackColor);
+    position: relative;
+    /* position: sticky; */
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    text-align: right;
+    justify-content: end;
+    position: absolute;
+    right: 3%;
+
+}
+
+nav ul li {
+    display: flex;
+    text-decoration: none;
+    position: relative;
+    font-size: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--TextColor);
+}
+
+nav a:hover {
+    color: var(--orange);
+    transition: 0.5s;
+}
+
+nav a:hover li {
+    border-bottom: 4px solid #ff4321;
+    transition: 0.5s;
+}
+
+
+img {
+    width: 19px;
+    cursor: pointer;
+}
+
+.active  {
+    color: var(--orange);
+    border-bottom: 4px solid #ff4321;
+   
+}
+.container{  /* for display contant in senter */
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0px auto;
+    /* padding: 20px 0px; */
+    background-color: var(--BackColor);
+    position: relative;
+  }
