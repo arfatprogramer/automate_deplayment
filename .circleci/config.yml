@@ -1,0 +1,45 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+
+jobs:
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Run Tests
+          command: npm test -- --watchAll=false
+      - run:
+          name: Build Project
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  deploy:
+    docker:
+      - image: cimg/node:18.20.2
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy
+          command: |
+            echo "Add your deployment command here"
+            # Example for Firebase:
+            # npm install -g firebase-tools
+            # firebase deploy --token $FIREBASE_TOKEN
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build-and-test
+      - deploy:
+          requires:
+            - build-and-test
