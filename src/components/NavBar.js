@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import './css/NavBar.css'
 import sun from './images/sun.png'
 import moon from './images/moon.png'
@@ -34,7 +33,7 @@ export default function NavBar(props) {
         <Link to="/contact"><li className={props.contact}>Contact</li></Link>
         <Link to="/login"><li className={props.login}>Login</li></Link>
         {/* conditional rendering */}
-        {mod === 2?<img src={sun} onClick={mode} id='img' />:<img src={moon} onClick={mode} id='img' />}
+        {mod === 2?<img src={sun} onClick={mode} id='img' alt='sun' />:<img src={moon} onClick={mode} id='img' alt='moon' />}
       </ul>
     </nav>
   )
